@@ -1,4 +1,3 @@
-```markdown
 <div align="center">
 
 # 🧪 TinyAPK Lab
@@ -148,6 +147,3 @@ The original code and documentation in this repository are released under the **
 [third-party-tools]: ./THIRD_PARTY_TOOLS.md
 [license-en]: ./LICENSE
 [license-ru]: ./LICENSE.ru.md
-```
-
----
