@@ -7,7 +7,7 @@ Minimal falling-sand sandbox with particles, heat, plant growth, and simple cook
 ## Screenshot / Скриншот
 
 <p align="center">
-  <img src="../docs/images/sandbox-screenshot.jpg" alt="Sandbox gameplay screenshot" width="320">
+  <img src="../docs/images/sandbox-gameplay.jpg" alt="Sandbox gameplay screenshot" width="320">
 </p>
 
 ## Build Output / Артефакты сборки
