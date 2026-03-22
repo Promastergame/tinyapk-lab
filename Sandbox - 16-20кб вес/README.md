@@ -4,6 +4,12 @@ Minimal falling-sand sandbox with particles, heat, plant growth, and simple cook
 
 Минималистичная falling-sand-песочница с частицами, жаром, ростом растений и простыми кулинарными реакциями. Сделана на чистом Java без Gradle, AndroidX и сторонних игровых фреймворков.
 
+## Screenshot / Скриншот
+
+<p align="center">
+  <img src="../docs/images/sandbox-screenshot.jpg" alt="Sandbox gameplay screenshot" width="320">
+</p>
+
 ## Build Output / Артефакты сборки
 
 - `build/Sandbox.apk` - 20,907 bytes

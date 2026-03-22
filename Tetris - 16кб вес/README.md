@@ -4,6 +4,12 @@ Compact Android Tetris implemented in pure Java with `SurfaceView` and `Canvas`.
 
 Компактный Android Tetris, реализованный на чистом Java через `SurfaceView` и `Canvas`. Без Gradle, без Kotlin, без AndroidX и без внешнего игрового движка.
 
+## Screenshot / Скриншот
+
+<p align="center">
+  <img src="../docs/images/tetris-screenshot.jpg" alt="Tetris gameplay screenshot" width="320">
+</p>
+
 ## Build Output / Артефакты сборки
 
 - `build/Tetris.apk` - 16,811 bytes
