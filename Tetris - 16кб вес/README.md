@@ -7,7 +7,7 @@ Compact Android Tetris implemented in pure Java with `SurfaceView` and `Canvas`.
 ## Screenshot / Скриншот
 
 <p align="center">
-  <img src="../docs/images/tetris-gameplay.jpg" alt="Tetris gameplay screenshot" width="320">
+  <img src="../docs/images/tetris-shot-v2.jpg" alt="Tetris gameplay screenshot" width="320">
 </p>
 
 ## Build Output / Артефакты сборки
