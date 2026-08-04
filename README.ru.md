@@ -187,7 +187,8 @@ aapt2 -> ecj -> d8/R8 -> zipalign -> apksigner  — сборочная цепо�
 ├── PROGUARD_README.md           # гайд по R8 / ProGuard
 ├── LICENSE                      # MIT (EN)
 ├── LICENSE.ru.md                # MIT (RU)
-├── THIRD_PARTY_TOOLS.md         # уведомление о лицензиях Android SDK / build tools
+├── THIRD_PARTY_TOOLS.md         # уведомление о лицензиях Android SDK / build tools (EN)
+├── THIRD_PARTY_TOOLS.ru.md      # уведомление о лицензиях Android SDK / build tools (RU)
 ├── .github/
 │   └── assets/
 │       ├── banner.svg
@@ -233,7 +234,7 @@ aapt2 -> ecj -> d8/R8 -> zipalign -> apksigner  — сборочная цепо�
 | <img src=".github/assets/icons/layers.svg" width="16"> [Проект Sandbox][sandbox-readme] | Правила частиц, выращивание, механика готовки |
 | <img src=".github/assets/icons/terminal.svg" width="16"> [Гайды по ручной сборке][build-guides] | Пошагово: `aapt2 -> ecj -> d8/R8 -> zipalign -> apksigner` |
 | <img src=".github/assets/icons/package.svg" width="16"> [Гайд по R8 / ProGuard][r8-guide] | Сжатие, обфускация, уменьшение размера |
-| <img src=".github/assets/icons/scale.svg" width="16"> [Уведомление о сторонних инструментах][third-party-tools] | Заметки о лицензиях Android SDK / build tools |
+| <img src=".github/assets/icons/scale.svg" width="16"> [Уведомление о сторонних инструментах][third-party-tools-ru] | Заметки о лицензиях Android SDK / build tools |
 
 ---
 
@@ -248,13 +249,15 @@ aapt2 -> ecj -> d8/R8 -> zipalign -> apksigner  — сборочная цепо�
 
 ## <img src=".github/assets/icons/scale.svg" width="20"> Лицензия
 
-Оригинальный код и документация распространяются под лицензией MIT ([EN][license-en] / [RU][license-ru]). Отдельное [уведомление об инструментах][third-party-tools] поясняет, что проекты собираются с помощью Android SDK и build tools, которые остаются под своими собственными лицензиями.
+Оригинальный код и документация распространяются под лицензией MIT ([EN][license-en] / [RU][license-ru]). Отдельное уведомление об инструментах ([EN][third-party-tools-en] / [RU][third-party-tools-ru]) поясняет, что проекты собираются с помощью Android SDK и build tools, которые остаются под своими собственными лицензиями.
 
 [tetris-readme]: ./Tetris/README.md
 [sandbox-readme]: ./Sandbox/README.md
 [build-guides]: ./manual-build/README.md
 [r8-guide]: ./PROGUARD_README.md
-[third-party-tools]: ./THIRD_PARTY_TOOLS.md
+[third-party-tools]: ./THIRD_PARTY_TOOLS.ru.md
+[third-party-tools-en]: ./THIRD_PARTY_TOOLS.md
+[third-party-tools-ru]: ./THIRD_PARTY_TOOLS.ru.md
 [license-en]: ./LICENSE
 [license-ru]: ./LICENSE.ru.md
 

@@ -1,31 +1,79 @@
-# Third-Party Tools Notice / Уведомление о сторонних инструментах
+<div align="center">
 
-## Scope / Что покрывает это уведомление
+# Third-Party Tools Notice
 
-The MIT license in this repository applies to the original source code, documentation, and other original materials authored for this repository unless a file explicitly says otherwise.
+**Notice regarding Android SDK, platform tooling, and third-party software licensing.**
 
-Лицензия MIT в этом репозитории распространяется на оригинальный исходный код, документацию и другие оригинальные материалы, созданные для этого репозитория, если в конкретном файле явно не указано иное.
+[English](THIRD_PARTY_TOOLS.md) · [Русский](THIRD_PARTY_TOOLS.ru.md) · [Main README](README.md) · [License](LICENSE)
 
-## Android Tooling Is Allowed / Использовать Android tooling можно
+</div>
 
-You may use this repository together with Android platform and build tools, including but not limited to `android.jar`, `aapt2`, `d8`, `R8`, `zipalign`, `apksigner`, `adb`, `keytool`, `ecj`, and similar tooling, for building, testing, packaging, signing, and distributing derivative works of the repository.
+---
 
-Вы можете использовать этот репозиторий вместе с Android platform и build tools, включая, помимо прочего, `android.jar`, `aapt2`, `d8`, `R8`, `zipalign`, `apksigner`, `adb`, `keytool`, `ecj` и аналогичные инструменты, для сборки, тестирования, упаковки, подписи и распространения производных работ на основе репозитория.
+## <img src=".github/assets/icons/scale.svg" width="20"> 1. Scope & Original Code Licensing
 
-## No Re-Licensing of Third-Party Tools / Сторонние инструменты не перелицензируются
+The MIT License specified in the [LICENSE](LICENSE) file applies strictly to the original source code, documentation, scripts, and assets authored directly for this repository (unless a file explicitly specifies a different license).
 
-Nothing in this repository re-licenses, transfers, or overrides the licenses, terms, trademarks, or distribution rules of Google, Android Open Source Project, Eclipse, Oracle, or any other third-party vendor or project.
+> [!NOTE]
+> All original materials created by the repository author are licensed under the permissive **MIT License**.
 
-Ничто в этом репозитории не перелицензирует, не передаёт и не отменяет лицензии, условия, товарные знаки или правила распространения Google, Android Open Source Project, Eclipse, Oracle или любых других сторонних вендоров и проектов.
+---
 
-## Your Responsibility / Ответственность пользователя
+## <img src=".github/assets/icons/terminal.svg" width="20"> 2. Permitted Use with Android Tooling
 
-If you download, bundle, redistribute, or depend on third-party tools, SDK files, binaries, or assets, you are responsible for complying with the licenses and terms that govern those third-party components.
+You are expressly permitted to use this repository alongside Android platform and build tools to assemble, test, package, sign, and distribute derivative works.
 
-Если вы скачиваете, включаете в поставку, перераспространяете или используете сторонние инструменты, SDK-файлы, бинарники или ассеты, ответственность за соблюдение лицензий и условий этих сторонних компонентов лежит на вас.
+Supported toolchains and utilities include (but are not limited to):
 
-## Practical Meaning / Практический смысл
+| Tool / Component | Purpose & Role in Build Chain |
+| :--- | :--- |
+| `android.jar` | Android framework API definitions |
+| `aapt2` | Android Asset Packaging Tool (compiling resources & packaging APK) |
+| `ecj` | Eclipse Compiler for Java (stand-alone Java compilation) |
+| `d8` / `R8` | Java bytecode to Dex compiler & ProGuard shrinker/optimizer |
+| `zipalign` | Zip alignment tool for APK execution performance |
+| `apksigner` | APK signing and signature verification tool |
+| `adb` & `keytool` | Android Debug Bridge & Java Keystore credential management |
 
-- The repository author's code can be used under MIT. / Код автора репозитория можно использовать по MIT.
-- You are allowed to build and ship projects from this repository with Android tooling. / Вы можете собирать и выпускать проекты из этого репозитория с использованием Android tooling.
-- The Android tools themselves remain under their own upstream licenses. / Сами Android-инструменты остаются под своими исходными лицензиями.
+---
+
+## <img src=".github/assets/icons/package.svg" width="20"> 3. No Re-Licensing of Upstream Tools
+
+Nothing contained in this repository re-licenses, transfers, modifies, or overrides the licenses, terms of service, trademarks, or distribution rules established by upstream vendor projects, including:
+
+- **Google & Android Open Source Project (AOSP)**
+- **Eclipse Foundation**
+- **Oracle Corporation**
+- Any other third-party vendor, contributor, or project.
+
+> [!IMPORTANT]
+> Third-party binaries, libraries, SDKs, and build utilities retain their respective upstream licenses.
+
+---
+
+## <img src=".github/assets/icons/bolt.svg" width="20"> 4. User Responsibility
+
+If you download, bundle, redistribute, or depend on third-party build tools, SDK components, binaries, or external assets:
+
+- **Compliance**: You are solely responsible for reviewing and complying with the respective licenses and terms of service governing those components.
+- **Redistribution**: Ensure your usage and distribution of third-party tools adhere to vendor redistribution permissions.
+
+---
+
+## <img src=".github/assets/icons/book.svg" width="20"> 5. Practical Summary
+
+| Aspect / Question | Summary Policy |
+| :--- | :--- |
+| **Repository Code** | Free to use, modify, and distribute under the **MIT License**. |
+| **Building & Shipping** | Fully allowed to build and ship applications using Android SDK tooling. |
+| **Tooling Licensing** | Android tools remain governed by their **original upstream licenses**. |
+
+---
+
+<div align="center">
+
+**TinyAPK Lab** · Kilobyte-scale Android engineering
+
+<sub>[LICENSE](LICENSE) · [THIRD_PARTY_TOOLS.ru.md](THIRD_PARTY_TOOLS.ru.md)</sub>
+
+</div>

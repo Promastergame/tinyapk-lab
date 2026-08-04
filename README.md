@@ -187,7 +187,8 @@ aapt2 -> ecj -> d8/R8 -> zipalign -> apksigner  — build chain
 ├── PROGUARD_README.md           # R8 / ProGuard shrinking guide
 ├── LICENSE                      # MIT (EN)
 ├── LICENSE.ru.md                # MIT (RU)
-├── THIRD_PARTY_TOOLS.md         # notice on Android SDK / build tools licenses
+├── THIRD_PARTY_TOOLS.md         # notice on Android SDK / build tools licenses (EN)
+├── THIRD_PARTY_TOOLS.ru.md      # notice on Android SDK / build tools licenses (RU)
 ├── .github/
 │   └── assets/
 │       ├── banner.svg
@@ -248,13 +249,15 @@ It works both as a reference for the manual `aapt2 -> d8 -> apksigner` pipeline 
 
 ## <img src=".github/assets/icons/scale.svg" width="20"> License
 
-Original code and documentation are released under the **MIT License** ([EN][license-en] / [RU][license-ru]). A separate [tooling notice][third-party-tools] clarifies that these projects are built using the Android SDK and platform build tools, which remain under their own respective licenses.
+Original code and documentation are released under the **MIT License** ([EN][license-en] / [RU][license-ru]). A separate tooling notice ([EN][third-party-tools-en] / [RU][third-party-tools-ru]) clarifies that these projects are built using the Android SDK and platform build tools, which remain under their own respective licenses.
 
 [tetris-readme]: ./Tetris/README.md
 [sandbox-readme]: ./Sandbox/README.md
 [build-guides]: ./manual-build/README.md
 [r8-guide]: ./PROGUARD_README.md
 [third-party-tools]: ./THIRD_PARTY_TOOLS.md
+[third-party-tools-en]: ./THIRD_PARTY_TOOLS.md
+[third-party-tools-ru]: ./THIRD_PARTY_TOOLS.ru.md
 [license-en]: ./LICENSE
 [license-ru]: ./LICENSE.ru.md
 
