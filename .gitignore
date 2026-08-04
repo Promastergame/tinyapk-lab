@@ -1,0 +1,13 @@
+# Build intermediate directories
+**/build/apk/
+**/build/apk_final/
+**/build/classes/
+**/build/dex/
+**/build/res/
+**/build/compiled.zip
+**/build/mapping.txt
+*.log
+
+# IDE
+.idea/
+.vscode/

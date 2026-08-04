@@ -1,77 +1,101 @@
-# Sandbox / Песочница
+<div align="center">
 
-Minimal falling-sand sandbox with particles, heat, plant growth, and simple cooking interactions. Built in pure Java without Gradle, AndroidX, or third-party game frameworks.
+# Sandbox
 
-Минималистичная falling-sand-песочница с частицами, жаром, ростом растений и простыми кулинарными реакциями. Сделана на чистом Java без Gradle, AndroidX и сторонних игровых фреймворков.
+**Minimal falling-sand sandbox with particles, growth, and cooking physics.**
 
-## Screenshot / Скриншот
+Pure Java · SurfaceView & Canvas · No Gradle · No AndroidX · 16.8 KB
 
-<p align="center">
-  <img src="../docs/images/sandbox-shot-v2.jpg" alt="Sandbox gameplay screenshot" width="320">
-</p>
+[**English**](README.md) · [Русский](README.ru.md) · [Root README](../README.md)
 
-## Build Output / Артефакты сборки
+<br>
 
-- `build/Sandbox.apk` - 20,907 bytes
-- `build/Sandbox-release.apk` - 16,811 bytes
+<img src="../.github/assets/badges/java.svg" alt="Java 8">  <img src="../.github/assets/badges/android.svg" alt="Android">  <img src="../.github/assets/badges/no-gradle.svg" alt="No Gradle">  <img src="../.github/assets/badges/apk-size.svg" alt="APK Size">  <img src="../.github/assets/badges/license.svg" alt="MIT License">
 
-## Core Systems / Основные системы
+<br><br>
 
-| System / Система | Description / Описание |
-| --- | --- |
-| Powders / Порошки | Sand, flour, salt, yeast, and ash fall, pile up, and react with liquids or heat.<br>Песок, мука, соль, дрожжи и пепел осыпаются, накапливаются и реагируют с жидкостями или жаром. |
-| Fluids / Жидкости | Water flows, spreads horizontally, fills gaps, and can turn into steam.<br>Вода течёт, растекается по горизонтали, заполняет пустоты и может превращаться в пар. |
-| Heat / Жар | Fire, heat cells, stoves, and ovens drive transformations across nearby materials.<br>Огонь, клетки жара, плиты и духовки запускают превращения соседних материалов. |
-| Growth / Рост | Wheat and potato seeds can grow when placed on suitable ground near water.<br>Семена пшеницы и картошки могут расти на подходящей почве рядом с водой. |
-| Cooking / Готовка | Dough can bake into bread, potatoes can fry, and several ingredient combinations create new states.<br>Тесто может выпекаться в хлеб, картошка может жариться, а комбинации ингредиентов создают новые состояния. |
+<img src="../docs/images/sandbox_en.jpg" alt="Sandbox screenshot" width="320">
 
-## Materials / Материалы
+</div>
 
-| Material / Материал | Behavior / Поведение |
-| --- | --- |
-| Sand / Песок | Falls downward and settles diagonally when needed. |
-| Water / Вода | Flows and fills open space. |
-| Dirt / Земля | Solid support block. |
-| Grass / Дёрн | Solid surface suitable for planting. |
-| Fire / Огонь | Rises upward and spreads heat. |
-| Flour / Мука | Powder ingredient used for dough. |
-| Salt / Соль | Powder ingredient that improves potato recipes. |
-| Yeast / Дрожжи | Powder ingredient used for risen dough. |
-| Wheat Seed / Семя пшеницы | Grows into wheat with water and proper soil. |
-| Potato Seed / Семя картошки | Grows into potato with water and proper soil. |
-| Pan / Сковородка | Static cooking surface. |
-| Stove / Плита | Constant source of fire and heat. |
-| Oven / Духовка | Heats the inner vertical space above it. |
+---
 
-## Recipes / Рецепты
+> [!NOTE]
+> **No Gradle project inside.** Compiled manually with `aapt2 -> ecj -> R8 -> zipalign -> apksigner`.
 
-| Recipe / Рецепт | Result / Результат |
-| --- | --- |
-| Flour + Water / Мука + Вода | Dough / Тесто |
-| Dough + Yeast / Тесто + Дрожжи | Yeast dough / Дрожжевое тесто |
-| Dough + Oven / Тесто + Духовка | Bread / Хлеб |
-| Yeast dough + Oven / Дрожжевое тесто + Духовка | Puffy bread / Пышный хлеб |
-| Potato + Stove or Pan / Картошка + Плита или Сковородка | Fried potato / Жареная картошка |
-| Potato + Salt + Stove / Картошка + Соль + Плита | Tasty potato / Вкусная картошка |
-| Wheat + Heat / Пшеница + Жар | Flour / Мука |
+**Sandbox** is an interactive falling-sand simulation featuring powder physics, liquid flow, heat transfer, seed germination, and cooking reactions.
 
-## Controls / Управление
+---
 
-- Tap or drag to paint the selected material. / Тапайте или тяните пальцем, чтобы рисовать выбранным материалом.
-- Use `-` and `+` to change brush radius. / Используйте `-` и `+`, чтобы менять радиус кисти.
-- Use `Clear` to reset the world. / Используйте `Clear`, чтобы сбросить мир.
+## <img src="../.github/assets/icons/bolt.svg" width="20"> What's New (Update 04.08.2026)
 
-## Architecture / Архитектура
+- <img src="../.github/assets/icons/link.svg" width="14"> **Bilingual Support (RU / EN)**: Native English localization with automatic system locale detection and an interactive `RU / EN` toggle button in the control toolbar.
+- <img src="../.github/assets/icons/book.svg" width="14"> **Dynamic Text Fitting**: Automatic font scaling for button labels (`paint.setTextSize(...)` with `measureText`) guaranteeing zero text overlap or clipping on any screen width.
+- <img src="../.github/assets/icons/flask.svg" width="14"> **Clean Slate Startup & Total Clear**: Removed initial demo scene so the game starts directly on a 100% blank canvas upon launch, and tapping `Clear` instantly resets the world to clean slate.
+- <img src="../.github/assets/icons/image.svg" width="14"> **Adaptive Launcher Icon**: Custom vector launcher icon with dark neon background and multi-element pixel sand hourglass foreground.
+- <img src="../.github/assets/icons/terminal.svg" width="14"> **Shared Windows Build Toolchain**: Fully integrated with the root `tools/windows/` build environment.
 
-The simulation is split between a pure-logic world model and a rendering layer. `SandWorld.java` handles particle state, movement, reactions, growth, and heat propagation, while `SandView.java` is responsible for drawing and touch input.
+---
 
-Симуляция разделена на модель мира и слой рендеринга. `SandWorld.java` отвечает за состояние частиц, движение, реакции, рост и распространение жара, а `SandView.java` отвечает за отрисовку и сенсорный ввод.
+## <img src="../.github/assets/icons/package.svg" width="20"> Build Output
 
-## Build Notes / Заметки по сборке
+| Artifact | Size | Description |
+| :--- | :--- | :--- |
+| `build/Sandbox-release.apk` | **16,845 B** | Signed, R8-shrunk release build |
+| `build/Sandbox.apk` | **16,845 B** | Ready-to-install release build |
 
-The project follows the same minimal pipeline used across this repository: `aapt2 -> ecj -> d8/R8 -> zipalign -> apksigner`. For step-by-step build guidance, see the repository-level documentation.
+---
 
-Проект использует ту же минималистичную сборочную цепочку, что и весь репозиторий: `aapt2 -> ecj -> d8/R8 -> zipalign -> apksigner`. Пошаговую инструкцию по сборке смотрите в документации репозитория.
+## <img src="../.github/assets/icons/layers.svg" width="20"> Core Systems
 
-- [Manual build notes](../%D0%B1%D0%B8%D0%BB%D0%B4%20%D0%B0%D0%BF%D0%BA/README.md)
-- [R8 / ProGuard guide](../PROGUARD_README.md)
+| System | Description |
+| :--- | :--- |
+| **Powders** | Sand, flour, salt, yeast, and ash fall, pile up, and react with liquids or heat. |
+| **Fluids** | Water flows, spreads horizontally, fills gaps, and evaporates into steam. |
+| **Heat** | Fire, heat cells, stoves, and ovens drive chemical transformations across nearby materials. |
+| **Growth** | Wheat and potato seeds germinate and grow when placed on suitable soil near water. |
+| **Cooking** | Dough bakes into bread, potatoes fry, and ingredient combinations unlock recipes. |
+
+---
+
+## <img src="../.github/assets/icons/flask.svg" width="20"> Recipes
+
+| Recipe | Result |
+| :--- | :--- |
+| **Flour + Water** | Dough |
+| **Dough + Yeast** | Yeast dough |
+| **Dough + Oven** | Bread |
+| **Yeast dough + Oven** | Puffy bread |
+| **Potato + Stove / Pan** | Fried potato |
+| **Potato + Salt + Stove** | Tasty potato |
+| **Wheat + Heat** | Flour |
+
+---
+
+## <img src="../.github/assets/icons/terminal.svg" width="20"> Controls
+
+- **Touch & Drag**: Paint selected material onto the canvas.
+- **`-` and `+`**: Adjust brush radius.
+- **`Clear`**: Reset the simulation world.
+- **`RU / EN`**: Toggle UI language live.
+
+---
+
+## <img src="../.github/assets/icons/book.svg" width="20"> Build Instructions
+
+To build the project on Windows:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\build.ps1
+```
+
+- [Manual build guide](../manual-build/README.md)
+- [R8 / ProGuard shrinking guide](../PROGUARD_README.md)
+
+---
+
+<div align="center">
+
+<sub>MIT License · See <a href="../LICENSE">LICENSE</a> for details</sub>
+
+</div>

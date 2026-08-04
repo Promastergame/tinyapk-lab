@@ -26,8 +26,8 @@
       </a>
     </td>
     <td align="center">
-      <a href="./Sandbox/README.md">
-        <img src="./docs/images/sandbox-shot-v2.jpg" alt="Скриншот Sandbox" width="380">
+      <a href="./Sandbox/README.ru.md">
+        <img src="./docs/images/sandbox_ru.jpg" alt="Скриншот Sandbox" width="380">
       </a>
     </td>
   </tr>
@@ -139,8 +139,8 @@ apksigner sign --ks debug.keystore --out app-release.apk app-aligned.apk
       <br><strong>Tetris</strong><br>Минималистичный UI, ghost piece, очки, уровни.
     </td>
     <td align="center">
-      <a href="./Sandbox/README.md">
-        <img src="./docs/images/sandbox-shot-v2.jpg" alt="Скриншот Sandbox" width="260">
+      <a href="./Sandbox/README.ru.md">
+        <img src="./docs/images/sandbox_ru.jpg" alt="Скриншот Sandbox" width="260">
       </a>
       <br><strong>Sandbox</strong><br>Частицы, жар, выращивание, готовка.
     </td>
@@ -196,17 +196,22 @@ aapt2 -> ecj -> d8/R8 -> zipalign -> apksigner  — сборочная цепо�
 ├── docs/
 │   └── images/
 │       ├── tetris-shot-v2.jpg
-│       └── sandbox-shot-v2.jpg
+│       ├── sandbox_en.jpg
+│       └── sandbox_ru.jpg
 ├── manual-build/                # гайды по ручной сборке
 │   ├── README.md
 │   ├── SKILL.md
 │   ├── proguard/SKILL.md
 │   └── tetris/SKILL.md
+├── tools/                        # бинарники сборки и keystore-файлы
+│   └── windows/
 ├── Tetris/
 │   ├── README.md
+│   ├── build.ps1
 │   └── build/
 └── Sandbox/
     ├── README.md
+    ├── build.ps1
     └── build/
 ```
 

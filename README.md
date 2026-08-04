@@ -27,7 +27,7 @@ Pure Java · Android SDK · No Gradle · No AndroidX · No Kotlin
     </td>
     <td align="center">
       <a href="./Sandbox/README.md">
-        <img src="./docs/images/sandbox-shot-v2.jpg" alt="Sandbox screenshot" width="380">
+        <img src="./docs/images/sandbox_en.jpg" alt="Sandbox screenshot" width="380">
       </a>
     </td>
   </tr>
@@ -140,7 +140,7 @@ Full, project-specific step-by-step notes live in [`manual-build/`][build-guides
     </td>
     <td align="center">
       <a href="./Sandbox/README.md">
-        <img src="./docs/images/sandbox-shot-v2.jpg" alt="Sandbox screenshot" width="260">
+        <img src="./docs/images/sandbox_en.jpg" alt="Sandbox screenshot" width="260">
       </a>
       <br><strong>Sandbox</strong><br>Particles, heat, farming, cooking.
     </td>
@@ -196,17 +196,22 @@ aapt2 -> ecj -> d8/R8 -> zipalign -> apksigner  — build chain
 ├── docs/
 │   └── images/
 │       ├── tetris-shot-v2.jpg
-│       └── sandbox-shot-v2.jpg
+│       ├── sandbox_en.jpg
+│       └── sandbox_ru.jpg
 ├── manual-build/                # manual build guides
 │   ├── README.md
 │   ├── SKILL.md
 │   ├── proguard/SKILL.md
 │   └── tetris/SKILL.md
+├── tools/                        # platform build binaries & keystores
+│   └── windows/
 ├── Tetris/
 │   ├── README.md
+│   ├── build.ps1
 │   └── build/
 └── Sandbox/
     ├── README.md
+    ├── build.ps1
     └── build/
 ```
 

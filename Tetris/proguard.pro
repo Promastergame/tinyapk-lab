@@ -1,0 +1,5 @@
+-keep class com.tetris.TetrisUltra { *; }
+-keep class com.tetris.TetrisUltra$V { *; }
+-keep class com.tetris.TetrisUltra$V$* { *; }
+-dontwarn **
+-allowaccessmodification

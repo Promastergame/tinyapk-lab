@@ -11,6 +11,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import com.sandbox.game.Particle;
 import com.sandbox.game.SandWorld;
+import java.util.Locale;
 
 public class SandView extends SurfaceView implements SurfaceHolder.Callback {
 
@@ -23,6 +24,7 @@ public class SandView extends SurfaceView implements SurfaceHolder.Callback {
 
     private int selectedTool = Particle.SAND;
     private int brushRadius = 2;
+    private boolean isEnglish = !Locale.getDefault().getLanguage().startsWith("ru");
 
     private Bitmap worldBitmap;
     private int[] pixels;
@@ -31,7 +33,7 @@ public class SandView extends SurfaceView implements SurfaceHolder.Callback {
     private float scaleX, scaleY;
     private float toolbarH;
     private float rowH;     // высота одной строки инструментов
-    private float ctrlH;    // высота строки управления (очистить, кисть)
+    private float ctrlH;    // высота строки управления
     private int SW, SH;     // размер экрана
 
     // Touch
@@ -57,29 +59,6 @@ public class SandView extends SurfaceView implements SurfaceHolder.Callback {
         world = new SandWorld(WORLD_W, WORLD_H);
         pixels = new int[WORLD_W * WORLD_H];
         worldBitmap = Bitmap.createBitmap(WORLD_W, WORLD_H, Bitmap.Config.ARGB_8888);
-        buildStartScene();
-    }
-
-    private void buildStartScene() {
-        for (int x = 0; x < WORLD_W; x++) {
-            world.set(x, WORLD_H-1, Particle.DIRT);
-            world.set(x, WORLD_H-2, Particle.DIRT);
-            if (x > WORLD_W/4 && x < 3*WORLD_W/4)
-                world.set(x, WORLD_H-3, Particle.GRASS);
-        }
-        // Плита + сковородка справа
-        for (int x = WORLD_W-14; x < WORLD_W-7; x++)
-            world.set(x, WORLD_H-3, Particle.STOVE);
-        for (int x = WORLD_W-13; x < WORLD_W-8; x++)
-            world.set(x, WORLD_H-4, Particle.WALL);
-        // Духовка слева
-        for (int x = 4; x < 14; x++) {
-            world.set(x, WORLD_H-3, Particle.OVEN);
-            world.set(x, WORLD_H-4, Particle.OVEN);
-            world.set(x, WORLD_H-5, Particle.OVEN);
-        }
-        world.set(4,  WORLD_H-4, Particle.EMPTY);
-        world.set(13, WORLD_H-4, Particle.EMPTY);
     }
 
     // ── Sim Thread ───────────────────────────────────────
@@ -223,49 +202,63 @@ public class SandView extends SurfaceView implements SurfaceHolder.Callback {
                 canvas.drawCircle(cx - dotR*0.25f, dotY - dotR*0.25f, dotR * 0.4f, paint);
             }
 
-            // Подпись
+            // Подпись с автоматическим масштабированием размера шрифта (гарантирует отсутствие наложения!)
+            String label = shortName(tool);
             paint.setTextAlign(Paint.Align.CENTER);
-            paint.setTextSize(textSize);
             paint.setTypeface(sel ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
+
+            float maxTextW = btnW - 3f;
+            paint.setTextSize(textSize);
+            float textW = paint.measureText(label);
+            if (textW > maxTextW && textW > 0) {
+                paint.setTextSize(textSize * (maxTextW / textW));
+            }
+
             paint.setColor(sel ? 0xFFFFFFFF : 0xFF7777AA);
-            canvas.drawText(shortName(tool), cx, rowY + rH * 0.88f, paint);
+            canvas.drawText(label, cx, rowY + rH * 0.88f, paint);
         }
     }
 
     private void drawControlRow(Canvas canvas, float rowY, float rH) {
-        float pad = 10f;
-        float btnH = rH * 0.62f;
+        float pad = 8f;
+        float btnH = rH * 0.65f;
         float btnY = rowY + (rH - btnH) / 2f;
         float textSize = rH * 0.28f;
 
-        // Кнопка "Очистить"
+        // Кнопка "Очистить" / "Clear"
         float clearW = SW * 0.22f;
         paint.setStyle(Paint.Style.FILL);
         paint.setColor(0xFF3A1A1A);
         canvas.drawRoundRect(new RectF(pad, btnY, pad + clearW, btnY + btnH), 8, 8, paint);
         paint.setColor(0xFFFF5555);
         paint.setTextAlign(Paint.Align.CENTER);
+
+        String clearText = isEnglish ? "Clear" : "Очистить";
         paint.setTextSize(textSize);
+        float clearTextW = paint.measureText(clearText);
+        if (clearTextW > clearW - 6f) {
+            paint.setTextSize(textSize * ((clearW - 6f) / clearTextW));
+        }
         paint.setTypeface(Typeface.DEFAULT_BOLD);
-        canvas.drawText("Очистить", pad + clearW/2, btnY + btnH*0.67f, paint);
+        canvas.drawText(clearText, pad + clearW/2, btnY + btnH*0.67f, paint);
 
         // Размер кисти
-        float brushX = SW * 0.33f;
+        float brushX = SW * 0.26f;
         paint.setColor(0xFF7777AA);
         paint.setTextAlign(Paint.Align.LEFT);
         paint.setTextSize(textSize * 0.85f);
         paint.setTypeface(Typeface.DEFAULT);
-        canvas.drawText("Кисть:", brushX, btnY + btnH*0.55f, paint);
+        canvas.drawText(isEnglish ? "Brush:" : "Кисть:", brushX, btnY + btnH*0.62f, paint);
 
         // Кнопки - и +
         float btnSize = btnH * 0.85f;
-        float minusX = brushX + SW * 0.14f;
-        float plusX  = minusX + btnSize + SW * 0.10f;
+        float minusX = brushX + SW * 0.16f;
+        float plusX  = minusX + btnSize + SW * 0.09f;
         float byY    = btnY + (btnH - btnSize) / 2f;
 
         // Кнопка "−"
         paint.setColor(0xFF252545);
-        canvas.drawRoundRect(new RectF(minusX, byY, minusX+btnSize, byY+btnSize), 6,6, paint);
+        canvas.drawRoundRect(new RectF(minusX, byY, minusX+btnSize, byY+btnSize), 6, 6, paint);
         paint.setColor(0xFFAAAADD);
         paint.setTextAlign(Paint.Align.CENTER);
         paint.setTextSize(textSize * 1.2f);
@@ -275,34 +268,65 @@ public class SandView extends SurfaceView implements SurfaceHolder.Callback {
         paint.setColor(0xFFFFFFFF);
         paint.setTextSize(textSize);
         paint.setTypeface(Typeface.DEFAULT_BOLD);
-        canvas.drawText(String.valueOf(brushRadius*2+1), minusX + btnSize + SW*0.05f, byY + btnSize*0.72f, paint);
+        canvas.drawText(String.valueOf(brushRadius*2+1), minusX + btnSize + SW*0.045f, byY + btnSize*0.72f, paint);
 
         // Кнопка "+"
         paint.setColor(0xFF252545);
-        canvas.drawRoundRect(new RectF(plusX, byY, plusX+btnSize, byY+btnSize), 6,6, paint);
+        canvas.drawRoundRect(new RectF(plusX, byY, plusX+btnSize, byY+btnSize), 6, 6, paint);
         paint.setColor(0xFFAAAADD);
         paint.setTextSize(textSize * 1.2f);
         paint.setTypeface(Typeface.DEFAULT);
         canvas.drawText("+", plusX + btnSize/2, byY + btnSize*0.72f, paint);
+
+        // Кнопка переключения языка "RU / EN"
+        float langW = SW * 0.15f;
+        float langX = SW - pad - langW;
+        paint.setColor(0xFF252545);
+        canvas.drawRoundRect(new RectF(langX, btnY, langX + langW, btnY + btnH), 8, 8, paint);
+        paint.setColor(0xFF00F5FF);
+        paint.setTextAlign(Paint.Align.CENTER);
+        paint.setTextSize(textSize * 0.9f);
+        paint.setTypeface(Typeface.DEFAULT_BOLD);
+        canvas.drawText(isEnglish ? "EN" : "RU", langX + langW/2f, btnY + btnH*0.67f, paint);
     }
 
     private String shortName(int tool) {
-        switch(tool) {
-            case Particle.EMPTY:       return "Стер.";
-            case Particle.SAND:        return "Песок";
-            case Particle.WATER:       return "Вода";
-            case Particle.DIRT:        return "Земля";
-            case Particle.GRASS:       return "Дёрн";
-            case Particle.WHEAT_SEED:  return "Пшен.";
-            case Particle.POTATO_SEED: return "Карт.";
-            case Particle.FLOUR:       return "Мука";
-            case Particle.SALT:        return "Соль";
-            case Particle.YEAST:       return "Дрожж";
-            case Particle.FIRE:        return "Огонь";
-            case Particle.WALL:        return "Скор.";
-            case Particle.OVEN:        return "Духовка";
-            case Particle.STOVE:       return "Плита";
-            default: return "?";
+        if (isEnglish) {
+            switch(tool) {
+                case Particle.EMPTY:       return "Erase";
+                case Particle.SAND:        return "Sand";
+                case Particle.WATER:       return "Water";
+                case Particle.DIRT:        return "Dirt";
+                case Particle.GRASS:       return "Grass";
+                case Particle.WHEAT_SEED:  return "Wheat";
+                case Particle.POTATO_SEED: return "Potato";
+                case Particle.FLOUR:       return "Flour";
+                case Particle.SALT:        return "Salt";
+                case Particle.YEAST:       return "Yeast";
+                case Particle.FIRE:        return "Fire";
+                case Particle.WALL:        return "Wall";
+                case Particle.OVEN:        return "Oven";
+                case Particle.STOVE:       return "Stove";
+                default: return "?";
+            }
+        } else {
+            switch(tool) {
+                case Particle.EMPTY:       return "Стер.";
+                case Particle.SAND:        return "Песок";
+                case Particle.WATER:       return "Вода";
+                case Particle.DIRT:        return "Земля";
+                case Particle.GRASS:       return "Дёрн";
+                case Particle.WHEAT_SEED:  return "Пшён.";
+                case Particle.POTATO_SEED: return "Карт.";
+                case Particle.FLOUR:       return "Мука";
+                case Particle.SALT:        return "Соль";
+                case Particle.YEAST:       return "Дрож.";
+                case Particle.FIRE:        return "Огонь";
+                case Particle.WALL:        return "Стена";
+                case Particle.OVEN:        return "Печь";
+                case Particle.STOVE:       return "Плита";
+                default: return "?";
+            }
         }
     }
 
@@ -339,17 +363,24 @@ public class SandView extends SurfaceView implements SurfaceHolder.Callback {
 
         if (y < row1Y) {
             // Строка управления
-            float pad = 10f;
+            float pad = 8f;
             float clearW = SW * 0.22f;
             if (x < pad + clearW) {
-                // Очистить
                 clearWorld(); return;
             }
+            // Переключатель языка
+            float langW = SW * 0.15f;
+            float langX = SW - pad - langW;
+            if (x >= langX) {
+                isEnglish = !isEnglish;
+                return;
+            }
+
             // Кисть + / -
-            float brushX = SW * 0.33f;
-            float btnSize = ctrlH * 0.62f * 0.85f;
-            float minusX = brushX + SW * 0.14f;
-            float plusX  = minusX + btnSize + SW * 0.10f;
+            float brushX = SW * 0.26f;
+            float btnSize = ctrlH * 0.65f * 0.85f;
+            float minusX = brushX + SW * 0.16f;
+            float plusX  = minusX + btnSize + SW * 0.09f;
             if (x >= minusX && x <= minusX + btnSize) { if (brushRadius > 1) brushRadius--; return; }
             if (x >= plusX  && x <= plusX  + btnSize) { if (brushRadius < 8) brushRadius++; return; }
 
@@ -366,7 +397,6 @@ public class SandView extends SurfaceView implements SurfaceHolder.Callback {
 
     private void clearWorld() {
         world = new SandWorld(WORLD_W, WORLD_H);
-        buildStartScene();
     }
 
     // ── Coords ───────────────────────────────────────────

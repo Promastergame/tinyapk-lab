@@ -1,57 +1,91 @@
+<div align="center">
+
 # Tetris
 
-Compact Android Tetris implemented in pure Java with `SurfaceView` and `Canvas`. No Gradle, no Kotlin, no AndroidX, and no external game engine.
+**Compact, kilobyte-scale Android Tetris built in pure Java.**
 
-Компактный Android Tetris, реализованный на чистом Java через `SurfaceView` и `Canvas`. Без Gradle, без Kotlin, без AndroidX и без внешнего игрового движка.
+Pure Java · SurfaceView & Canvas · No Gradle · No AndroidX · 16.8 KB
 
-## Screenshot / Скриншот
+[**English**](README.md) · [Русский](README.ru.md) · [Root README](../README.md)
 
-<p align="center">
-  <img src="../docs/images/tetris-shot-v2.jpg" alt="Tetris gameplay screenshot" width="320">
-</p>
+<br>
 
-## Build Output / Артефакты сборки
+<img src="../.github/assets/badges/java.svg" alt="Java 8">  <img src="../.github/assets/badges/android.svg" alt="Android">  <img src="../.github/assets/badges/no-gradle.svg" alt="No Gradle">  <img src="../.github/assets/badges/apk-size.svg" alt="APK Size">  <img src="../.github/assets/badges/license.svg" alt="MIT License">
 
-- `build/Tetris.apk` - 16,811 bytes
-- `build/Tetris-release.apk` - 16,811 bytes
+<br><br>
 
-## Gameplay Features / Особенности геймплея
+<img src="../docs/images/tetris-shot-v2.jpg" alt="Tetris screenshot" width="320">
 
-- All 7 classic tetrominoes. / Все 7 классических тетромино.
-- Ghost piece preview. / Призрачная проекция точки приземления.
-- Simple wall kick logic on rotation. / Простая wall kick-логика при повороте.
-- Score, line counter, and level progression. / Очки, счётчик линий и прогрессия по уровням.
-- Falling speed increases with level. / Скорость падения растёт с уровнем.
-- Next-piece preview panel. / Панель со следующей фигурой.
-- Tap-to-restart flow after game over. / Перезапуск по тапу после окончания партии.
+</div>
 
-## Controls / Управление
+---
 
-| Input / Ввод | Action / Действие |
-| --- | --- |
-| Tap / Тап | Rotate piece / Повернуть фигуру |
-| Swipe left / right / Свайп влево / вправо | Move piece / Сдвинуть фигуру |
-| Swipe down / Свайп вниз | Hard drop / Мгновенно сбросить |
-| Swipe up / Свайп вверх | Rotate piece / Повернуть фигуру |
-| Tap after game over / Тап после поражения | Restart game / Перезапустить игру |
+> [!NOTE]
+> **No Gradle project inside.** Compiled manually with `aapt2 -> ecj -> R8 -> zipalign -> apksigner`.
 
-## Technical Notes / Технические заметки
+**Tetris** is a minimal, fast, single-file Android game written from scratch using raw Android SDK APIs (`SurfaceView` and `Canvas`).
 
-The project is intentionally split into two layers: `TetrisGame.java` contains the pure game rules and board state, while `TetrisView.java` handles rendering, animation timing, and touch input.
+---
 
-Проект намеренно разделён на два слоя: `TetrisGame.java` содержит чистые игровые правила и состояние поля, а `TetrisView.java` отвечает за рендеринг, тайминг анимации и сенсорный ввод.
+## <img src="../.github/assets/icons/bolt.svg" width="20"> What's New (Update 04.08.2026)
 
-## Rendering / Рендеринг
+- <img src="../.github/assets/icons/bolt.svg" width="14"> **Ultra-Compact Single-File Architecture (`TetrisUltra.java`)**: Rebuilt core game logic, rendering engine, and state machine into a single optimized Java file to reduce APK footprint.
+- <img src="../.github/assets/icons/gamepad.svg" width="14"> **Smooth Touch Gestures**: Smooth horizontal/vertical dragging (`drag/swipe`), fast downward swipe for hard drops, and tap-to-rotate.
+- <img src="../.github/assets/icons/terminal.svg" width="14"> **Interactive Pause & Resume**: Added on-screen `[PAUSE]` / `[RESUME]` toggle button and full Activity `onPause()` / `onResume()` lifecycle integration.
+- <img src="../.github/assets/icons/flask.svg" width="14"> **Zero-Allocation Audio Engine**: Replaced runtime `AudioTrack` allocations with static memory-mapped sound buffers (zero heap allocations during gameplay).
+- <img src="../.github/assets/icons/layers.svg" width="14"> **Universal Aspect Ratio Centering**: Dynamic grid and sidebar positioning that automatically centers on wide landscape, narrow portrait, and tablet screens.
 
-The UI uses a dark gradient background, highlighted cells, a ghost piece outline, and a compact side panel for score, lines, level, and next-piece preview.
+---
 
-Интерфейс использует тёмный градиентный фон, подсвеченные клетки, контур ghost piece и компактную боковую панель для очков, линий, уровня и следующей фигуры.
+## <img src="../.github/assets/icons/package.svg" width="20"> Build Output
 
-## Build Notes / Заметки по сборке
+| Artifact | Size | Description |
+| :--- | :--- | :--- |
+| `build/Tetris-release.apk` | **16,848 B** | Signed, R8-shrunk release build |
+| `build/Tetris.apk` | **16,848 B** | Ready-to-install release build |
 
-The build pipeline is fully manual: `aapt2 -> ecj -> d8/R8 -> zipalign -> apksigner`. The game is designed as a kilobyte-scale reference project for minimal Android builds.
+---
 
-Сборочная цепочка полностью ручная: `aapt2 -> ecj -> d8/R8 -> zipalign -> apksigner`. Игра задумана как эталонный проект для минималистичной Android-сборки в килобайтном масштабе.
+## <img src="../.github/assets/icons/gamepad.svg" width="20"> Features
 
-- [Manual build notes](../%D0%B1%D0%B8%D0%BB%D0%B4%20%D0%B0%D0%BF%D0%BA/README.md)
-- [R8 / ProGuard guide](../PROGUARD_README.md)
+- All 7 classic tetrominoes (`I`, `J`, `L`, `O`, `S`, `T`, `Z`).
+- Ghost piece landing preview.
+- Wall-kick rotation logic.
+- Score, line counter, level progression, and high score saving (`SharedPreferences`).
+- Speed scaling as level increases.
+- Next-piece preview box.
+- Particle explosion effects on line clears.
+
+---
+
+## <img src="../.github/assets/icons/terminal.svg" width="20"> Controls
+
+| Gesture / Touch | Action |
+| :--- | :--- |
+| **Tap** | Rotate piece |
+| **Drag Left / Right** | Move piece horizontally |
+| **Drag Down** | Soft drop |
+| **Fast Swipe Down** | Hard drop |
+| **Tap Pause Button** | Pause / Resume game |
+| **Tap (Game Over screen)** | Restart game |
+
+---
+
+## <img src="../.github/assets/icons/book.svg" width="20"> Build Instructions
+
+To build the project on Windows:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\build.ps1
+```
+
+- [Manual build guide](../manual-build/README.md)
+- [R8 / ProGuard shrinking guide](../PROGUARD_README.md)
+
+---
+
+<div align="center">
+
+<sub>MIT License · See <a href="../LICENSE">LICENSE</a> for details</sub>
+
+</div>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Sandbox Glass Rims -->
+    <path
+        android:fillColor="#4A4A7A"
+        android:pathData="M34,26h40v6h-40zM34,76h40v6h-40z"/>
+
+    <!-- Hourglass Frame -->
+    <path
+        android:fillColor="#00E5FF"
+        android:pathData="M38,32 L51,51 L38,70 L42,73 L54,55 L66,73 L70,70 L57,51 L70,32 L66,29 L54,47 L42,29 Z"/>
+
+    <!-- Top Sand (Amber Yellow) -->
+    <path
+        android:fillColor="#FFC107"
+        android:pathData="M40,34h28l-8,12h-12z"/>
+
+    <!-- Falling Sand Stream -->
+    <path
+        android:fillColor="#FFC107"
+        android:pathData="M53,46h2v15h-2z"/>
+
+    <!-- Bottom Sand Mound -->
+    <path
+        android:fillColor="#FFC107"
+        android:pathData="M42,68 L54,56 L66,68 Z"/>
+    <path
+        android:fillColor="#FF5722"
+        android:pathData="M46,68 L54,60 L62,68 Z"/>
+
+    <!-- Floating Particles -->
+    <!-- Water particle (Cyan) -->
+    <path
+        android:fillColor="#00E5FF"
+        android:pathData="M28,40h5v5h-5zM24,49h4v4h-4z"/>
+    <!-- Grass particle (Green) -->
+    <path
+        android:fillColor="#00E676"
+        android:pathData="M75,42h5v5h-5zM79,52h4v4h-4z"/>
+    <!-- Fire Spark (Yellow) -->
+    <path
+        android:fillColor="#FFEE55"
+        android:pathData="M51,18h6v6h-6z"/>
+</vector>
