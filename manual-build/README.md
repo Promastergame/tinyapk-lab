@@ -7,12 +7,12 @@ This folder collects the documentation behind the manual APK workflow used in th
 ## What Is Inside / Что внутри
 
 - [`SKILL.md`](./SKILL.md) - end-to-end notes for building an Android APK without Gradle or Android Studio.
-- [`тетрис/SKILL.md`](./%D1%82%D0%B5%D1%82%D1%80%D0%B8%D1%81/SKILL.md) - project-oriented notes for building a minimal Java game APK similar to Tetris.
-- [`прогуард/SKILL.md`](./%D0%BF%D1%80%D0%BE%D0%B3%D1%83%D0%B0%D1%80%D0%B4/SKILL.md) - release build notes for shrinking and obfuscating with R8.
+- [`tetris/SKILL.md`](./tetris/SKILL.md) - project-oriented notes for building a minimal Java game APK similar to Tetris.
+- [`proguard/SKILL.md`](./proguard/SKILL.md) - release build notes for shrinking and obfuscating with R8.
 
 - [`SKILL.md`](./SKILL.md) - сквозные заметки по сборке Android APK без Gradle и Android Studio.
-- [`тетрис/SKILL.md`](./%D1%82%D0%B5%D1%82%D1%80%D0%B8%D1%81/SKILL.md) - практические заметки по сборке минимальной Java-игры по типу Tetris.
-- [`прогуард/SKILL.md`](./%D0%BF%D1%80%D0%BE%D0%B3%D1%83%D0%B0%D1%80%D0%B4/SKILL.md) - заметки по release-сборке, уменьшению и обфускации через R8.
+- [`tetris/SKILL.md`](./tetris/SKILL.md) - практические заметки по сборке минимальной Java-игры по типу Tetris.
+- [`proguard/SKILL.md`](./proguard/SKILL.md) - заметки по release-сборке, уменьшению и обфускации через R8.
 
 ## Shared Toolchain / Общая toolchain-цепочка
 

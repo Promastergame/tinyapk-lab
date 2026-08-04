@@ -21,12 +21,12 @@ Pure Java · Android SDK · No Gradle · No AndroidX · No Kotlin
 <table>
   <tr>
     <td align="center">
-      <a href="./Tetris%20-%2016%D0%BA%D0%B1%20%D0%B2%D0%B5%D1%81/README.md">
+      <a href="./Tetris/README.md">
         <img src="./docs/images/tetris-shot-v2.jpg" alt="Tetris screenshot" width="380">
       </a>
     </td>
     <td align="center">
-      <a href="./Sandbox%20-%2016-20%D0%BA%D0%B1%20%D0%B2%D0%B5%D1%81/README.md">
+      <a href="./Sandbox/README.md">
         <img src="./docs/images/sandbox-shot-v2.jpg" alt="Sandbox screenshot" width="380">
       </a>
     </td>
@@ -96,8 +96,8 @@ Signed, installable release builds in the **16.8–20.9 KB** range are committed
 Every project already ships a signed release build in its `build/` folder:
 
 ```bash
-adb install "Tetris - 16кб вес/build/Tetris-release.apk"
-adb install "Sandbox - 16-20кб вес/build/Sandbox-release.apk"
+adb install "Tetris/build/Tetris-release.apk"
+adb install "Sandbox/build/Sandbox-release.apk"
 ```
 
 ### <img src=".github/assets/icons/terminal.svg" width="20"> Option B — build it yourself
@@ -114,7 +114,7 @@ zipalign -f 4 app-unsigned.apk app-aligned.apk
 apksigner sign --ks debug.keystore --out app-release.apk app-aligned.apk
 ```
 
-Full, project-specific step-by-step notes live in [`билд апк/`][build-guides], including R8 shrinking guidance in [`PROGUARD_README.md`][r8-guide].
+Full, project-specific step-by-step notes live in [`manual-build/`][build-guides], including R8 shrinking guidance in [`PROGUARD_README.md`][r8-guide].
 
 ---
 
@@ -133,13 +133,13 @@ Full, project-specific step-by-step notes live in [`билд апк/`][build-gui
 <table>
   <tr>
     <td align="center">
-      <a href="./Tetris%20-%2016%D0%BA%D0%B1%20%D0%B2%D0%B5%D1%81/README.md">
+      <a href="./Tetris/README.md">
         <img src="./docs/images/tetris-shot-v2.jpg" alt="Tetris screenshot" width="260">
       </a>
       <br><strong>Tetris</strong><br>Minimal UI, ghost piece, scoring, level flow.
     </td>
     <td align="center">
-      <a href="./Sandbox%20-%2016-20%D0%BA%D0%B1%20%D0%B2%D0%B5%D1%81/README.md">
+      <a href="./Sandbox/README.md">
         <img src="./docs/images/sandbox-shot-v2.jpg" alt="Sandbox screenshot" width="260">
       </a>
       <br><strong>Sandbox</strong><br>Particles, heat, farming, cooking.
@@ -197,15 +197,15 @@ aapt2 -> ecj -> d8/R8 -> zipalign -> apksigner  — build chain
 │   └── images/
 │       ├── tetris-shot-v2.jpg
 │       └── sandbox-shot-v2.jpg
-├── билд апк/                    # manual build guides
+├── manual-build/                # manual build guides
 │   ├── README.md
 │   ├── SKILL.md
-│   ├── прогуард/SKILL.md
-│   └── тетрис/SKILL.md
-├── Tetris - 16кб вес/
+│   ├── proguard/SKILL.md
+│   └── tetris/SKILL.md
+├── Tetris/
 │   ├── README.md
 │   └── build/
-└── Sandbox - 16-20кб вес/
+└── Sandbox/
     ├── README.md
     └── build/
 ```
@@ -245,9 +245,9 @@ It works both as a reference for the manual `aapt2 -> d8 -> apksigner` pipeline 
 
 Original code and documentation are released under the **MIT License** ([EN][license-en] / [RU][license-ru]). A separate [tooling notice][third-party-tools] clarifies that these projects are built using the Android SDK and platform build tools, which remain under their own respective licenses.
 
-[tetris-readme]: ./Tetris%20-%2016%D0%BA%D0%B1%20%D0%B2%D0%B5%D1%81/README.md
-[sandbox-readme]: ./Sandbox%20-%2016-20%D0%BA%D0%B1%20%D0%B2%D0%B5%D1%81/README.md
-[build-guides]: ./%D0%B1%D0%B8%D0%BB%D0%B4%20%D0%B0%D0%BF%D0%BA/README.md
+[tetris-readme]: ./Tetris/README.md
+[sandbox-readme]: ./Sandbox/README.md
+[build-guides]: ./manual-build/README.md
 [r8-guide]: ./PROGUARD_README.md
 [third-party-tools]: ./THIRD_PARTY_TOOLS.md
 [license-en]: ./LICENSE
