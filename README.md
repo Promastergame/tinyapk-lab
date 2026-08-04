@@ -255,6 +255,8 @@ Original code and documentation are released under the **MIT License** ([EN][lic
 [tetris-readme]: ./Tetris/README.md
 [sandbox-readme]: ./Sandbox/README.md
 [build-guides]: ./manual-build/README.md
+[build-guides-en]: ./manual-build/README.md
+[build-guides-ru]: ./manual-build/README.ru.md
 [r8-guide]: ./PROGUARD_README.md
 [r8-guide-en]: ./PROGUARD_README.md
 [r8-guide-ru]: ./PROGUARD_README.ru.md

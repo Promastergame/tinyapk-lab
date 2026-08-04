@@ -254,7 +254,9 @@ aapt2 -> ecj -> d8/R8 -> zipalign -> apksigner  — сборочная цепо�
 
 [tetris-readme]: ./Tetris/README.md
 [sandbox-readme]: ./Sandbox/README.md
-[build-guides]: ./manual-build/README.md
+[build-guides]: ./manual-build/README.ru.md
+[build-guides-en]: ./manual-build/README.md
+[build-guides-ru]: ./manual-build/README.ru.md
 [r8-guide]: ./PROGUARD_README.ru.md
 [r8-guide-en]: ./PROGUARD_README.md
 [r8-guide-ru]: ./PROGUARD_README.ru.md
