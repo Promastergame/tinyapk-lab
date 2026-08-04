@@ -7,7 +7,7 @@
         android:targetSdkVersion="34"/>
 
     <application
-        android:label="Sandbox"
+        android:label="LowSand"
         android:icon="@mipmap/ic_launcher"
         android:allowBackup="false"
         android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">

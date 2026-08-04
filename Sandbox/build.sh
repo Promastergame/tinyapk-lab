@@ -14,7 +14,7 @@ KEY_PASS=promaster
 PROJ=./app/src/main
 BUILD=./build
 
-echo "Building Tetris APK..."
+echo "Building Sandbox APK (LowSand)..."
 
 rm -rf "$BUILD"
 mkdir -p "$BUILD/res" "$BUILD/classes" "$BUILD/dex" "$BUILD/apk" "$BUILD/apk_final"
@@ -36,11 +36,12 @@ else
 fi
 
 echo "Compile Java..."
+mapfile -t JAVA_FILES < <(find "$PROJ/java" -name "*.java")
 java -jar "$ECJ_JAR" -source 8 -target 8 -encoding UTF-8 \
   -bootclasspath "$ANDROID_JAR" \
   -classpath "$ANDROID_JAR" \
   -d "$BUILD/classes" \
-  "$PROJ/java/com/tetris/TetrisUltra.java"
+  "${JAVA_FILES[@]}"
 
 echo "Run R8..."
 mapfile -t CLASSES < <(find "$BUILD/classes" -name "*.class")
@@ -86,11 +87,11 @@ java -jar "$APKSIGNER_JAR" sign \
   --v2-signing-enabled true \
   --v3-signing-enabled false \
   --v4-signing-enabled false \
-  --out "$BUILD/LowBlocks-release.apk" \
+  --out "$BUILD/LowSand-release.apk" \
   "$BUILD/apk_final/app-aligned.apk"
 
-cp "$BUILD/LowBlocks-release.apk" "$BUILD/LowBlocks.apk"
+cp "$BUILD/LowSand-release.apk" "$BUILD/LowSand.apk"
 
-SIZE=$(wc -c < "$BUILD/LowBlocks-release.apk")
+SIZE=$(wc -c < "$BUILD/LowSand-release.apk")
 echo ""
-echo "Done: LowBlocks-release.apk - ${SIZE} bytes"
+echo "Done: LowSand-release.apk - ${SIZE} bytes"
