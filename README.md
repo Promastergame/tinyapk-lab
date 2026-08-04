@@ -1,52 +1,134 @@
 <div align="center">
 
-# 🧪 TinyAPK Lab
+<img src=".github/assets/banner.svg" alt="TinyAPK Lab" width="820">
 
-### Ultra-light Android projects, hand-built APK pipelines, and kilobyte-scale experiments
-### Ультралёгкие Android-проекты, ручная сборка APK и эксперименты в масштабе килобайт
+# TinyAPK Lab
 
----
+**Real Android apps, hand-built APKs, kilobyte-scale.**
 
-![Platform](https://img.shields.io/badge/Platform-Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
-![Language](https://img.shields.io/badge/Language-Java-E76F00?style=for-the-badge&logo=openjdk&logoColor=white)
-![Build](https://img.shields.io/badge/Build-No%20Gradle-111111?style=for-the-badge)
-![APK Size](https://img.shields.io/badge/APK-16.8KB--20.9KB-0A84FF?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT%20%2B%20Tooling%20Notice-0F766E?style=for-the-badge)
+Pure Java · Android SDK · No Gradle · No AndroidX · No Kotlin
+
+[**English**](README.md) · [Русский](README.ru.md) · [Quick start](#-quick-start) · [Projects](#-projects) · [Build chain](#-build-chain) · [Structure](#-repository-structure)
+
+<br>
+
+<img src=".github/assets/badges/java.svg" alt="Java 8">  <img src=".github/assets/badges/android.svg" alt="Android">  <img src=".github/assets/badges/no-gradle.svg" alt="No Gradle">  <img src=".github/assets/badges/apk-size.svg" alt="APK size">  <img src=".github/assets/badges/license.svg" alt="MIT License">
+
+<img src="https://img.shields.io/badge/dependencies-zero-555?style=flat-square" alt="Zero dependencies"> <img src="https://img.shields.io/badge/Android_Studio-not%20required-3DDC84?style=flat-square&logo=android&logoColor=white" alt="No Android Studio required"> <img src="https://img.shields.io/badge/build_steps-5-0A84FF?style=flat-square" alt="5 build steps"> <img src="https://img.shields.io/badge/projects-2-7B61FF?style=flat-square" alt="2 projects">
+
+<br><br>
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="./Tetris%20-%2016%D0%BA%D0%B1%20%D0%B2%D0%B5%D1%81/README.md">
+        <img src="./docs/images/tetris-shot-v2.jpg" alt="Tetris screenshot" width="380">
+      </a>
+    </td>
+    <td align="center">
+      <a href="./Sandbox%20-%2016-20%D0%BA%D0%B1%20%D0%B2%D0%B5%D1%81/README.md">
+        <img src="./docs/images/sandbox-shot-v2.jpg" alt="Sandbox screenshot" width="380">
+      </a>
+    </td>
+  </tr>
+</table>
+
+*Two playable games. Two APKs under 21 KB. Zero build-system dependency.*
+
+Built by a solo dev · assembled with five command-line tools
 
 </div>
 
 ---
 
-## 📖 Overview / Обзор
+> [!NOTE]
+> **No Gradle project inside.** These apps are compiled and packaged by hand: `aapt2 -> ecj -> d8/R8 -> zipalign -> apksigner`. There is no `build.gradle`, no Android Studio project, and no AndroidX — just Java source, the platform SDK, and a handful of command-line tools.
 
-**TinyAPK Lab** is a curated repository of minimal Android projects built with pure Java and platform SDK APIs - without Gradle, AndroidX, Kotlin, or heavyweight tooling. The goal is straightforward: show how small, understandable, and portable a real Android app can be when the stack stays lean.
+**TinyAPK Lab** is a small, curated collection of Android apps written in plain Java against the raw Android SDK APIs. No Gradle, no Kotlin, no AndroidX, no game engine — just `SurfaceView`, `Canvas`, and a build chain assembled entirely from command-line tools. The point is to show how small, transparent, and portable a real, installable Android app can be.
 
-**TinyAPK Lab** - это аккуратно собранный репозиторий минималистичных Android-проектов на чистом Java и API платформы Android SDK, без Gradle, AndroidX, Kotlin и тяжёлой инфраструктуры. Цель простая: показать, насколько маленьким, понятным и переносимым может быть реальное Android-приложение при аккуратном стеке.
+> [!TIP]
+> **Release APKs stay under 21 KB.** An empty "Hello World" Android Studio project typically ships at 1.5–3 MB before a single line of logic is written. These apps are 70–150× smaller — and fully playable.
+
+<table>
+<tr>
+<td width="33%" valign="top">
+
+### <img src=".github/assets/icons/flask.svg" width="20"> Pure Java, no bloat
+`SurfaceView` + `Canvas` rendering, no game engine, no reflection-heavy frameworks — every line is readable.
+
+</td>
+<td width="33%" valign="top">
+
+### <img src=".github/assets/icons/terminal.svg" width="20"> Hand-built pipeline
+`aapt2 -> ecj -> d8/R8 -> zipalign -> apksigner` — the same chain Android Studio hides from you, run by hand.
+
+</td>
+<td width="33%" valign="top">
+
+### <img src=".github/assets/icons/package.svg" width="20"> Kilobyte-scale APKs
+Signed, installable release builds in the **16.8–20.9 KB** range are committed straight into the repo.
+
+</td>
+</tr>
+</table>
 
 ---
 
-## ✨ Highlights / Главное
+## Contents
 
-| | English | Русский |
-|---|---|---|
-| 🔧 | Pure Java, `SurfaceView`, `Canvas`, and manual APK packaging | Чистый Java, `SurfaceView`, `Canvas` и ручная упаковка APK |
-| 🚫 | No Gradle, no mandatory Android Studio, no AndroidX, no game engine | Без Gradle, без обязательного Android Studio, без AndroidX, без игровых движков |
-| 📦 | Ready-to-install build artifacts included in the repo | Готовые артефакты сборки уже лежат в репозитории |
-| 🪶 | Release APKs stay in the **~16.8 KB** range instead of multi-megabyte | Release APK остаются на уровне **~16.8 KB** вместо привычных мегабайт |
+- [Quick start](#-quick-start)
+- [Projects](#-projects)
+- [Screenshots](#-screenshots)
+- [Build chain](#-build-chain)
+- [Tech stack](#-tech-stack)
+- [Repository structure](#-repository-structure)
+- [Why this exists](#-why-this-exists)
+- [Documentation](#-documentation)
+- [Principles](#-principles)
+- [License](#-license)
 
 ---
 
-## 🎮 Projects / Проекты
+## <img src=".github/assets/icons/bolt.svg" width="20"> Quick start
+
+### <img src=".github/assets/icons/package.svg" width="20"> Option A — install a prebuilt APK
+
+Every project already ships a signed release build in its `build/` folder:
+
+```bash
+adb install "Tetris - 16кб вес/build/Tetris-release.apk"
+adb install "Sandbox - 16-20кб вес/build/Sandbox-release.apk"
+```
+
+### <img src=".github/assets/icons/terminal.svg" width="20"> Option B — build it yourself
+
+No Gradle, no project to open in an IDE — just the platform build tools on your `PATH`:
+
+```bash
+aapt2 compile -o compiled/ res/**/*
+aapt2 link -o app-unsigned.apk -I android.jar --manifest AndroidManifest.xml compiled/*.zip
+ecj -d classes -classpath android.jar src/**/*.java
+d8 --release --output . classes/**/*.class
+zip -j app-unsigned.apk classes.dex
+zipalign -f 4 app-unsigned.apk app-aligned.apk
+apksigner sign --ks debug.keystore --out app-release.apk app-aligned.apk
+```
+
+Full, project-specific step-by-step notes live in [`билд апк/`][build-guides], including R8 shrinking guidance in [`PROGUARD_README.md`][r8-guide].
+
+---
+
+## <img src=".github/assets/icons/gamepad.svg" width="20"> Projects
 
 | Project | What it includes | Build output |
-|---|---|---|
-| [🟦 Tetris][tetris-readme] | Swipe-based classic Tetris with 7 tetrominoes, ghost piece, wall kick, scoring, levels, and next-piece preview.<br>Классический Tetris со свайп-управлением, 7 тетромино, ghost piece, wall kick, очками, уровнями и preview следующей фигуры. | `Tetris.apk` - 16,811 bytes<br>`Tetris-release.apk` - 16,811 bytes |
-| [🏖️ Sandbox][sandbox-readme] | Falling-sand sandbox with powders, water, seeds, heat, steam, simple farming, and cooking reactions.<br>Песочница с порошками, водой, семенами, жаром, паром, простым выращиванием и кулинарными реакциями. | `Sandbox.apk` - 20,907 bytes<br>`Sandbox-release.apk` - 16,811 bytes |
-| [📘 Build Guides][build-guides] | Manual build notes for `aapt2 -> ecj -> d8/R8 -> zipalign -> apksigner`, plus R8 shrinking guidance.<br>Гайды по ручной сборке через `aapt2 -> ecj -> d8/R8 -> zipalign -> apksigner` и заметки по R8. | Documentation / Документация |
+| :--- | :--- | :--- |
+| <img src=".github/assets/icons/gamepad.svg" width="18"> **[Tetris][tetris-readme]** | Swipe-based classic Tetris — 7 tetrominoes, ghost piece, wall kick, scoring, levels, next-piece preview. | `Tetris.apk` — 16,811 B<br>`Tetris-release.apk` — 16,811 B |
+| <img src=".github/assets/icons/layers.svg" width="18"> **[Sandbox][sandbox-readme]** | Falling-sand simulation — powders, water, seeds, heat, steam, simple farming, cooking reactions. | `Sandbox.apk` — 20,907 B<br>`Sandbox-release.apk` — 16,811 B |
+| <img src=".github/assets/icons/book.svg" width="18"> **[Build guides][build-guides]** | Manual build notes for `aapt2 -> ecj -> d8/R8 -> zipalign -> apksigner`, plus R8 shrinking guidance. | Documentation |
 
 ---
 
-## 📸 Screenshots / Скриншоты
+## <img src=".github/assets/icons/image.svg" width="20"> Screenshots
 
 <table>
   <tr>
@@ -54,91 +136,114 @@
       <a href="./Tetris%20-%2016%D0%BA%D0%B1%20%D0%B2%D0%B5%D1%81/README.md">
         <img src="./docs/images/tetris-shot-v2.jpg" alt="Tetris screenshot" width="260">
       </a>
+      <br><strong>Tetris</strong><br>Minimal UI, ghost piece, scoring, level flow.
     </td>
     <td align="center">
       <a href="./Sandbox%20-%2016-20%D0%BA%D0%B1%20%D0%B2%D0%B5%D1%81/README.md">
         <img src="./docs/images/sandbox-shot-v2.jpg" alt="Sandbox screenshot" width="260">
       </a>
+      <br><strong>Sandbox</strong><br>Particles, heat, farming, cooking.
     </td>
-  </tr>
-  <tr>
-    <td align="center"><strong>🟦 Tetris</strong><br>Minimal UI, ghost piece, scoring, and level flow.</td>
-    <td align="center"><strong>🏖️ Sandbox</strong><br>Particles, heat, farming, and cooking.</td>
   </tr>
 </table>
 
 ---
 
-## 🤔 Why This Repository Exists / Зачем нужен этот репозиторий
+## <img src=".github/assets/icons/terminal.svg" width="20"> Build chain
 
-This repository documents a deliberately minimal Android workflow: small apps, transparent code, and a build chain that can run without the usual Gradle ecosystem. It works both as a reference and as a proof of concept for ultra-light mobile prototypes.
-
-Этот репозиторий фиксирует намеренно минималистичный процесс разработки и сборки под Android: небольшие приложения, прозрачный код и сборочную цепочку, которую можно запускать без привычной экосистемы Gradle. Это и справочник, и proof of concept для ультралёгких мобильных прототипов.
-
----
-
-## 🛠️ Tech Stack / Стек
-
-```text
-Java 8               - язык / language
-Android SDK APIs     - платформа / platform
-SurfaceView + Canvas - рендеринг / rendering
-aapt2 -> ecj -> d8/R8 -> zipalign -> apksigner - сборочная цепочка / build chain
+```mermaid
+flowchart LR
+    SRC["Java source<br/>+ resources"] --> AAPT["aapt2<br/>compile & link"]
+    AAPT --> ECJ["ecj<br/>compile to .class"]
+    ECJ --> D8["d8 / R8<br/>.class -> .dex"]
+    D8 --> ZIP["zipalign<br/>4-byte alignment"]
+    ZIP --> SIGN["apksigner<br/>sign"]
+    SIGN --> APK["Signed APK<br/>16.8-20.9 KB"]
 ```
 
-**Not used / Не используется:** Gradle, Kotlin, AndroidX, external UI/game frameworks.
+No Gradle daemon, no dependency resolution, no annotation processors — five tools, one direction, a fully inspectable output at every stage.
 
 ---
 
-## 📂 Repository Structure / Структура
+## <img src=".github/assets/icons/flask.svg" width="20"> Tech stack
+
+```text
+Java 8                 — language
+Android SDK APIs       — platform, no support libraries
+SurfaceView + Canvas   — rendering, no game engine
+aapt2 -> ecj -> d8/R8 -> zipalign -> apksigner  — build chain
+```
+
+**Deliberately not used:** Gradle, Kotlin, AndroidX/Jetpack, external UI or game frameworks, third-party dependencies.
+
+---
+
+## <img src=".github/assets/icons/link.svg" width="20"> Repository structure
 
 ```text
 .
-├── README.md
-├── PROGUARD_README.md
-├── LICENSE
-├── LICENSE.ru.md
-├── THIRD_PARTY_TOOLS.md
+├── README.md                    # this file (English)
+├── README.ru.md                 # Russian version
+├── PROGUARD_README.md           # R8 / ProGuard shrinking guide
+├── LICENSE                      # MIT (EN)
+├── LICENSE.ru.md                # MIT (RU)
+├── THIRD_PARTY_TOOLS.md         # notice on Android SDK / build tools licenses
+├── .github/
+│   └── assets/
+│       ├── banner.svg
+│       ├── badges/
+│       └── icons/
 ├── docs/
 │   └── images/
-│       ├── sandbox-shot-v2.jpg
-│       └── tetris-shot-v2.jpg
-├── билд апк/
+│       ├── tetris-shot-v2.jpg
+│       └── sandbox-shot-v2.jpg
+├── билд апк/                    # manual build guides
 │   ├── README.md
 │   ├── SKILL.md
-│   ├── прогуард/
-│   │   └── SKILL.md
-│   └── тетрис/
-│       └── SKILL.md
-├── Sandbox - 16-20кб вес/
+│   ├── прогуард/SKILL.md
+│   └── тетрис/SKILL.md
+├── Tetris - 16кб вес/
 │   ├── README.md
 │   └── build/
-└── Tetris - 16кб вес/
+└── Sandbox - 16-20кб вес/
     ├── README.md
     └── build/
 ```
 
 ---
 
-## 🔗 Quick Links / Быстрые ссылки
+## <img src=".github/assets/icons/flask.svg" width="20"> Why this exists
 
-| | Link |
-|---|---|
-| 🟦 | [Tetris project][tetris-readme] |
-| 🏖️ | [Sandbox project][sandbox-readme] |
-| 📘 | [Manual build notes][build-guides] |
-| 🔒 | [R8 / ProGuard guide][r8-guide] |
-| ⚖️ | [Third-party tools notice][third-party-tools] |
-| 📄 | [MIT License (EN)][license-en] |
-| 📄 | [MIT License (RU)][license-ru] |
+Most Android tutorials start with Gradle, AndroidX, and a few hundred megabytes of tooling before a single pixel is drawn. This repository goes the other way: how small, transparent, and dependency-free can a *real*, installable Android app get if you build it by hand, one tool at a time?
+
+It works both as a reference for the manual `aapt2 -> d8 -> apksigner` pipeline and as a proof of concept that kilobyte-scale, Gradle-free Android apps are still entirely possible.
 
 ---
 
-## 📜 License / Лицензия
+## <img src=".github/assets/icons/book.svg" width="20"> Documentation
 
-The original code and documentation in this repository are released under the **MIT License**. A separate tooling notice clarifies that these projects may be used together with Android SDK and build tools, but those third-party tools remain under their own licenses.
+| | |
+| :--- | :--- |
+| <img src=".github/assets/icons/gamepad.svg" width="16"> [Tetris project][tetris-readme] | Gameplay, controls, and source layout |
+| <img src=".github/assets/icons/layers.svg" width="16"> [Sandbox project][sandbox-readme] | Particle rules, farming, and cooking mechanics |
+| <img src=".github/assets/icons/terminal.svg" width="16"> [Manual build notes][build-guides] | Step-by-step `aapt2 -> ecj -> d8/R8 -> zipalign -> apksigner` |
+| <img src=".github/assets/icons/package.svg" width="16"> [R8 / ProGuard guide][r8-guide] | Shrinking, obfuscation, and size-reduction notes |
+| <img src=".github/assets/icons/scale.svg" width="16"> [Third-party tools notice][third-party-tools] | Licensing notes for Android SDK / build tools |
 
-Оригинальный код и документация в этом репозитории распространяются по лицензии **MIT**. Отдельное уведомление поясняет, что проекты можно использовать вместе с Android SDK и build tools, но сами сторонние инструменты остаются под своими собственными лицензиями.
+---
+
+## <img src=".github/assets/icons/scale.svg" width="20"> Principles
+
+- **Minimal by mandate.** If it needs Gradle, AndroidX, or a dependency manager, it doesn't belong here.
+- **Transparent.** No obfuscated build magic — every step of the pipeline is a plain command you can run yourself.
+- **Portable.** Builds from a terminal, with nothing more than the Android SDK command-line tools and a JDK.
+- **Small by default.** Every release APK is committed to the repo so you can see exactly what "kilobyte-scale" means.
+
+---
+
+## <img src=".github/assets/icons/scale.svg" width="20"> License
+
+Original code and documentation are released under the **MIT License** ([EN][license-en] / [RU][license-ru]). A separate [tooling notice][third-party-tools] clarifies that these projects are built using the Android SDK and platform build tools, which remain under their own respective licenses.
 
 [tetris-readme]: ./Tetris%20-%2016%D0%BA%D0%B1%20%D0%B2%D0%B5%D1%81/README.md
 [sandbox-readme]: ./Sandbox%20-%2016-20%D0%BA%D0%B1%20%D0%B2%D0%B5%D1%81/README.md
@@ -147,3 +252,11 @@ The original code and documentation in this repository are released under the **
 [third-party-tools]: ./THIRD_PARTY_TOOLS.md
 [license-en]: ./LICENSE
 [license-ru]: ./LICENSE.ru.md
+
+<div align="center">
+
+**TinyAPK Lab** · real Android apps, kilobyte-scale
+
+<sub>MIT License · See <a href="LICENSE">LICENSE</a> for details</sub>
+
+</div>
