@@ -94,9 +94,11 @@ java -jar $APKSIGNER_JAR sign `
     --v2-signing-enabled true `
     --v3-signing-enabled false `
     --v4-signing-enabled false `
-    --out "$BUILD\\apk_final\\LowBlocks.apk" `
-    "$BUILD\\apk_final\\app-aligned.apk"
+    --out "$BUILD\LowBlocks-release.apk" `
+    "$BUILD\apk_final\app-aligned.apk"
 
-$apk = Get-Item "$BUILD\\apk_final\\LowBlocks.apk"
+Copy-Item "$BUILD\LowBlocks-release.apk" "$BUILD\LowBlocks.apk"
+
+$apk = Get-Item "$BUILD\LowBlocks-release.apk"
 Write-Host ""
 Write-Host ("Done: {0} bytes" -f $apk.Length)

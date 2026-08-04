@@ -41,8 +41,8 @@
 
 | Артефакт | Размер | Описание |
 | :--- | :--- | :--- |
-| `build/Tetris-release.apk` | **16 848 Б** | Подписанная release-сборка после R8 |
-| `build/Tetris.apk` | **16 848 Б** | Готовый к установке APK |
+| `build/LowBlocks-release.apk` | **16 848 Б** | Подписанная release-сборка после R8 |
+| `build/LowBlocks.apk` | **16 848 Б** | Готовый к установке APK |
 
 ---
 

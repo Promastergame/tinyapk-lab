@@ -41,8 +41,8 @@ Pure Java · SurfaceView & Canvas · No Gradle · No AndroidX · 16.8 KB
 
 | Artifact | Size | Description |
 | :--- | :--- | :--- |
-| `build/Tetris-release.apk` | **16,848 B** | Signed, R8-shrunk release build |
-| `build/Tetris.apk` | **16,848 B** | Ready-to-install release build |
+| `build/LowBlocks-release.apk` | **16,848 B** | Signed, R8-shrunk release build |
+| `build/LowBlocks.apk` | **16,848 B** | Ready-to-install release build |
 
 ---
 

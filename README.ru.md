@@ -96,8 +96,8 @@
 В каждом проекте уже есть подписанная release-сборка в папке `build/`:
 
 ```bash
-adb install "Tetris/build/Tetris-release.apk"
-adb install "Sandbox/build/Sandbox-release.apk"
+adb install "Tetris/build/LowBlocks-release.apk"
+adb install "Sandbox/build/LowSand-release.apk"
 ```
 
 ### <img src=".github/assets/icons/terminal.svg" width="20"> Вариант B — собрать самостоятельно
@@ -122,8 +122,8 @@ apksigner sign --ks debug.keystore --out app-release.apk app-aligned.apk
 
 | Проект | Что внутри | Артефакты сборки |
 | :--- | :--- | :--- |
-| <img src=".github/assets/icons/gamepad.svg" width="18"> **[Tetris][tetris-readme]** | Классический Tetris со свайп-управлением — 7 тетромино, ghost piece, wall kick, очки, уровни, превью следующей фигуры. | `Tetris.apk` — 16 811 Б<br>`Tetris-release.apk` — 16 811 Б |
-| <img src=".github/assets/icons/layers.svg" width="18"> **[Sandbox][sandbox-readme]** | Песочница с падающим песком — порошки, вода, семена, жар, пар, простое выращивание, кулинарные реакции. | `Sandbox.apk` — 20 907 Б<br>`Sandbox-release.apk` — 16 811 Б |
+| <img src=".github/assets/icons/gamepad.svg" width="18"> **[Tetris][tetris-readme]** | Классический Tetris со свайп-управлением — 7 тетромино, ghost piece, wall kick, очки, уровни, превью следующей фигуры. | `LowBlocks.apk` — 16 811 Б<br>`LowBlocks-release.apk` — 16 811 Б |
+| <img src=".github/assets/icons/layers.svg" width="18"> **[Sandbox][sandbox-readme]** | Песочница с падающим песком — порошки, вода, семена, жар, пар, простое выращивание, кулинарные реакции. | `LowSand.apk` — 20 907 Б<br>`LowSand-release.apk` — 16 811 Б |
 | <img src=".github/assets/icons/book.svg" width="18"> **[Гайды по сборке][build-guides]** | Заметки по ручной сборке через `aapt2 -> ecj -> d8/R8 -> zipalign -> apksigner`, плюс рекомендации по R8. | Документация |
 
 ---

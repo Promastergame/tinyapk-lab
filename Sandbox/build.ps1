@@ -95,11 +95,11 @@ java -jar $APKSIGNER_JAR sign `
     --v2-signing-enabled true `
     --v3-signing-enabled false `
     --v4-signing-enabled false `
-    --out "$BUILD\Sandbox-release.apk" `
+    --out "$BUILD\LowSand-release.apk" `
     "$BUILD\apk_final\app-aligned.apk"
 
-Copy-Item "$BUILD\Sandbox-release.apk" "$BUILD\Sandbox.apk"
+Copy-Item "$BUILD\LowSand-release.apk" "$BUILD\LowSand.apk"
 
-$apk = Get-Item "$BUILD\Sandbox-release.apk"
+$apk = Get-Item "$BUILD\LowSand-release.apk"
 Write-Host ""
 Write-Host ("Done: {0} bytes" -f $apk.Length)

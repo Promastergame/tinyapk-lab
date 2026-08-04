@@ -41,8 +41,8 @@ Pure Java · SurfaceView & Canvas · No Gradle · No AndroidX · 16.8 KB
 
 | Artifact | Size | Description |
 | :--- | :--- | :--- |
-| `build/Sandbox-release.apk` | **16,845 B** | Signed, R8-shrunk release build |
-| `build/Sandbox.apk` | **16,845 B** | Ready-to-install release build |
+| `build/LowSand-release.apk` | **16,845 B** | Signed, R8-shrunk release build |
+| `build/LowSand.apk` | **16,845 B** | Ready-to-install release build |
 
 ---
 

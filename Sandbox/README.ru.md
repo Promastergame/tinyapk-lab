@@ -41,8 +41,8 @@
 
 | Артефакт | Размер | Описание |
 | :--- | :--- | :--- |
-| `build/Sandbox-release.apk` | **16 845 Б** | Подписанная release-сборка после R8 |
-| `build/Sandbox.apk` | **16 845 Б** | Готовый к установке APK |
+| `build/LowSand-release.apk` | **16 845 Б** | Подписанная release-сборка после R8 |
+| `build/LowSand.apk` | **16 845 Б** | Готовый к установке APK |
 
 ---
 

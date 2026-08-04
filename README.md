@@ -96,8 +96,8 @@ Signed, installable release builds in the **16.8–20.9 KB** range are committed
 Every project already ships a signed release build in its `build/` folder:
 
 ```bash
-adb install "Tetris/build/Tetris-release.apk"
-adb install "Sandbox/build/Sandbox-release.apk"
+adb install "Tetris/build/LowBlocks-release.apk"
+adb install "Sandbox/build/LowSand-release.apk"
 ```
 
 ### <img src=".github/assets/icons/terminal.svg" width="20"> Option B — build it yourself
@@ -122,8 +122,8 @@ Full, project-specific step-by-step notes live in [`manual-build/`][build-guides
 
 | Project | What it includes | Build output |
 | :--- | :--- | :--- |
-| <img src=".github/assets/icons/gamepad.svg" width="18"> **[Tetris][tetris-readme]** | Swipe-based classic Tetris — 7 tetrominoes, ghost piece, wall kick, scoring, levels, next-piece preview. | `Tetris.apk` — 16,811 B<br>`Tetris-release.apk` — 16,811 B |
-| <img src=".github/assets/icons/layers.svg" width="18"> **[Sandbox][sandbox-readme]** | Falling-sand simulation — powders, water, seeds, heat, steam, simple farming, cooking reactions. | `Sandbox.apk` — 20,907 B<br>`Sandbox-release.apk` — 16,811 B |
+| <img src=".github/assets/icons/gamepad.svg" width="18"> **[Tetris][tetris-readme]** | Swipe-based classic Tetris — 7 tetrominoes, ghost piece, wall kick, scoring, levels, next-piece preview. | `LowBlocks.apk` — 16,811 B<br>`LowBlocks-release.apk` — 16,811 B |
+| <img src=".github/assets/icons/layers.svg" width="18"> **[Sandbox][sandbox-readme]** | Falling-sand simulation — powders, water, seeds, heat, steam, simple farming, cooking reactions. | `LowSand.apk` — 20,907 B<br>`LowSand-release.apk` — 16,811 B |
 | <img src=".github/assets/icons/book.svg" width="18"> **[Build guides][build-guides]** | Manual build notes for `aapt2 -> ecj -> d8/R8 -> zipalign -> apksigner`, plus R8 shrinking guidance. | Documentation |
 
 ---
