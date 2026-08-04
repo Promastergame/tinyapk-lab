@@ -80,7 +80,7 @@ powershell -ExecutionPolicy Bypass -File .\build.ps1
 ```
 
 - [Гайд по ручной сборке](../manual-build/README.md)
-- [Инструкция по R8 / ProGuard](../PROGUARD_README.md)
+- [Инструкция по R8 / ProGuard](../PROGUARD_README.ru.md)
 
 ---
 

@@ -114,7 +114,7 @@ zipalign -f 4 app-unsigned.apk app-aligned.apk
 apksigner sign --ks debug.keystore --out app-release.apk app-aligned.apk
 ```
 
-Full, project-specific step-by-step notes live in [`manual-build/`][build-guides], including R8 shrinking guidance in [`PROGUARD_README.md`][r8-guide].
+Full, project-specific step-by-step notes live in [`manual-build/`][build-guides], including R8 shrinking guidance ([EN][r8-guide-en] / [RU][r8-guide-ru]).
 
 ---
 
@@ -184,7 +184,8 @@ aapt2 -> ecj -> d8/R8 -> zipalign -> apksigner  — build chain
 .
 ├── README.md                    # this file (English)
 ├── README.ru.md                 # Russian version
-├── PROGUARD_README.md           # R8 / ProGuard shrinking guide
+├── PROGUARD_README.md           # R8 / ProGuard shrinking guide (EN)
+├── PROGUARD_README.ru.md        # R8 / ProGuard shrinking guide (RU)
 ├── LICENSE                      # MIT (EN)
 ├── LICENSE.ru.md                # MIT (RU)
 ├── THIRD_PARTY_TOOLS.md         # notice on Android SDK / build tools licenses (EN)
@@ -255,6 +256,8 @@ Original code and documentation are released under the **MIT License** ([EN][lic
 [sandbox-readme]: ./Sandbox/README.md
 [build-guides]: ./manual-build/README.md
 [r8-guide]: ./PROGUARD_README.md
+[r8-guide-en]: ./PROGUARD_README.md
+[r8-guide-ru]: ./PROGUARD_README.ru.md
 [third-party-tools]: ./THIRD_PARTY_TOOLS.md
 [third-party-tools-en]: ./THIRD_PARTY_TOOLS.md
 [third-party-tools-ru]: ./THIRD_PARTY_TOOLS.ru.md

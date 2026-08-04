@@ -114,7 +114,7 @@ zipalign -f 4 app-unsigned.apk app-aligned.apk
 apksigner sign --ks debug.keystore --out app-release.apk app-aligned.apk
 ```
 
-Полные пошаговые заметки по каждому проекту — в [`manual-build/`][build-guides], включая гайд по R8-сжатию в [`PROGUARD_README.md`][r8-guide].
+Полные пошаговые заметки по каждому проекту — в [`manual-build/`][build-guides], включая гайд по R8-сжатию ([EN][r8-guide-en] / [RU][r8-guide-ru]).
 
 ---
 
@@ -184,7 +184,8 @@ aapt2 -> ecj -> d8/R8 -> zipalign -> apksigner  — сборочная цепо�
 .
 ├── README.md                    # этот файл (English)
 ├── README.ru.md                 # русская версия
-├── PROGUARD_README.md           # гайд по R8 / ProGuard
+├── PROGUARD_README.md           # гайд по R8 / ProGuard (EN)
+├── PROGUARD_README.ru.md        # гайд по R8 / ProGuard (RU)
 ├── LICENSE                      # MIT (EN)
 ├── LICENSE.ru.md                # MIT (RU)
 ├── THIRD_PARTY_TOOLS.md         # уведомление о лицензиях Android SDK / build tools (EN)
@@ -233,7 +234,7 @@ aapt2 -> ecj -> d8/R8 -> zipalign -> apksigner  — сборочная цепо�
 | <img src=".github/assets/icons/gamepad.svg" width="16"> [Проект Tetris][tetris-readme] | Геймплей, управление, структура исходников |
 | <img src=".github/assets/icons/layers.svg" width="16"> [Проект Sandbox][sandbox-readme] | Правила частиц, выращивание, механика готовки |
 | <img src=".github/assets/icons/terminal.svg" width="16"> [Гайды по ручной сборке][build-guides] | Пошагово: `aapt2 -> ecj -> d8/R8 -> zipalign -> apksigner` |
-| <img src=".github/assets/icons/package.svg" width="16"> [Гайд по R8 / ProGuard][r8-guide] | Сжатие, обфускация, уменьшение размера |
+| <img src=".github/assets/icons/package.svg" width="16"> [Гайд по R8 / ProGuard][r8-guide-ru] | Сжатие, обфускация, уменьшение размера |
 | <img src=".github/assets/icons/scale.svg" width="16"> [Уведомление о сторонних инструментах][third-party-tools-ru] | Заметки о лицензиях Android SDK / build tools |
 
 ---
@@ -254,7 +255,9 @@ aapt2 -> ecj -> d8/R8 -> zipalign -> apksigner  — сборочная цепо�
 [tetris-readme]: ./Tetris/README.md
 [sandbox-readme]: ./Sandbox/README.md
 [build-guides]: ./manual-build/README.md
-[r8-guide]: ./PROGUARD_README.md
+[r8-guide]: ./PROGUARD_README.ru.md
+[r8-guide-en]: ./PROGUARD_README.md
+[r8-guide-ru]: ./PROGUARD_README.ru.md
 [third-party-tools]: ./THIRD_PARTY_TOOLS.ru.md
 [third-party-tools-en]: ./THIRD_PARTY_TOOLS.md
 [third-party-tools-ru]: ./THIRD_PARTY_TOOLS.ru.md
